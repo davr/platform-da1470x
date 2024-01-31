@@ -1,58 +1,51 @@
 {
-  "name": "raspberrypi",
-  "title": "Raspberry Pi RP2040",
+  "name": "da1470x",
+  "title": "Dialog DA1470x",
   "description": "RP2040 is a low-cost, high-performance microcontroller device with a large on-chip memory, symmetric dual-core processor complex, and rich peripheral.",
-  "homepage": "https://www.raspberrypi.org/documentation/rp2040/getting-started/",
+  "homepage": "https://www.renesas.com/us/en/products/wireless-connectivity/bluetooth-low-energy/da14706-highly-integrated-advanced-bluetooth-52-soc",
   "license": "Apache-2.0",
   "keywords": [
     "dev-platform",
     "ARM",
     "Cortex-M",
-    "Raspberry Pi",
-    "RP2040"
+    "Dialog",
+    "DA1470x"
   ],
   "engines": {
     "platformio": "^6"
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/platformio/platform-raspberrypi.git"
+    "url": "https://github.com/davr/platform-da1470x.git"
   },
-  "version": "1.11.0",
+  "version": "0.0.1",
   "frameworks": {
-    "arduino": {
-      "package": "framework-arduino-mbed",
-      "script": "builder/frameworks/arduino/mbed-core/arduino-core-mbed.py"
+    "da1470x": {
+      "package": "framework-da1470x-sdk",
+      "script": "builder/frameworks/da1470x-sdk/da1470x-sdk.py"
     }
   },
   "packages": {
     "toolchain-gccarmnoneeabi": {
       "type": "toolchain",
       "owner": "platformio",
-      "version": "~1.90201.0"
+      "version": "~1.70201.0"
     },
-    "framework-arduino-mbed": {
+    "framework-da1470x-sdk": {
       "type": "framework",
-      "optional": true,
-      "owner": "platformio",
-      "version": "~4.0.10"
+      "version": "https://github.com/davr/da1470x-sdk.git"
     },
-    "tool-rp2040tools": {
-      "type": "uploader",
-      "owner": "platformio",
-      "version": "~1.0.2"
-    },
-    "tool-openocd-raspberrypi": {
+    "tool-openocd": {
       "type": "uploader",
       "optional": true,
       "owner": "platformio",
-      "version": "~2.1100.0"
+      "version": "~3.1200.0"
     },
     "tool-jlink": {
       "type": "uploader",
       "optional": true,
       "owner": "platformio",
-      "version": "^1.72000.0"
+      "version": "^1.78811.0"
     }
   }
 }

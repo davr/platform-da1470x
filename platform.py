@@ -17,7 +17,7 @@ import platform
 from platformio.public import PlatformBase
 
 
-class RaspberrypiPlatform(PlatformBase):
+class Da1470xPlatform(PlatformBase):
 
     def is_embedded(self):
         return True
@@ -58,7 +58,7 @@ class RaspberrypiPlatform(PlatformBase):
         if "tools" not in debug:
             debug["tools"] = {}
 
-        for link in ("cmsis-dap", "jlink", "raspberrypi-swd"):
+        for link in ("cmsis-dap", "jlink"):
             if link not in upload_protocols or link in debug["tools"]:
                 continue
 
@@ -87,7 +87,7 @@ class RaspberrypiPlatform(PlatformBase):
                 debug["tools"][link] = {
                     "server": {
                         "executable": "bin/openocd",
-                        "package": "tool-openocd-raspberrypi",
+                        "package": "tool-openocd",
                         "arguments": [
                             "-s", "$PACKAGE_DIR/share/openocd/scripts",
                             "-f", "interface/%s.cfg" % link,
@@ -100,7 +100,7 @@ class RaspberrypiPlatform(PlatformBase):
         return board
 
     def configure_debug_session(self, debug_config):
-        adapter_speed = debug_config.speed or "5000"
+        adapter_speed = debug_config.speed or "4000"
         server_options = debug_config.server or {}
         server_arguments = server_options.get("arguments", [])
         if "interface/cmsis-dap.cfg" in server_arguments:

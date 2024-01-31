@@ -24,18 +24,19 @@ from SCons.Script import (ARGUMENTS, COMMAND_LINE_TARGETS, AlwaysBuild,
 
 
 def BeforeUpload(target, source, env):  # pylint: disable=W0613,W0621
-    upload_options = {}
-    if "BOARD" in env:
-        upload_options = env.BoardConfig().get("upload", {})
-
-    env.AutodetectUploadPort()
-    before_ports = list_serial_ports()
-
-    if upload_options.get("use_1200bps_touch", False):
-        env.TouchSerialPort("$UPLOAD_PORT", 1200)
-
-    if upload_options.get("wait_for_upload_port", False):
-        env.Replace(UPLOAD_PORT=env.WaitForNewSerialPort(before_ports))
+    pass
+#    upload_options = {}
+#    if "BOARD" in env:
+#        upload_options = env.BoardConfig().get("upload", {})
+#
+#    env.AutodetectUploadPort()
+#    before_ports = list_serial_ports()
+#
+#    if upload_options.get("use_1200bps_touch", False):
+#        env.TouchSerialPort("$UPLOAD_PORT", 1200)
+#
+#    if upload_options.get("wait_for_upload_port", False):
+#        env.Replace(UPLOAD_PORT=env.WaitForNewSerialPort(before_ports))
 
 
 def generate_uf2(target, source, env):
@@ -125,9 +126,9 @@ else:
 AlwaysBuild(env.Alias("nobuild", target_firm))
 target_buildprog = env.Alias("buildprog", target_firm, target_firm)
 
-env.AddPostAction(
-    target_elf, env.VerboseAction(generate_uf2, "Generating UF2 image")
-)
+#env.AddPostAction(
+#    target_elf, env.VerboseAction(generate_uf2, "Generating UF2 image")
+#)
 
 #
 # Target: Print binary size

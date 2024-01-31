@@ -1,0 +1,36 @@
+{
+  "build": {
+    "cpu": "cortex-m33",
+    "extra_flags": "",
+    "f_cpu": "160000000L",
+    "hwids": [
+      [
+        "0x2E8A",
+        "0x00C0"
+      ]
+    ],
+    "mcu": "da1470x",
+    "variant": "da14706"
+  },
+  "debug": {
+    "jlink_device": "TBD",
+    "openocd_target": "cmsis-dap-cortex-m.cfg",
+    "svd_path": "TBD.svd"
+  },
+  "frameworks": [
+    "da1470x"
+  ],
+  "name": "Retro Watch Dev Board v1",
+  "upload": {
+    "maximum_ram_size": 1048576,
+    "maximum_size": 4194304,
+    "require_upload_port": true,
+    "protocol": "picotool",
+    "protocols": [
+      "cmsis-dap",
+      "jlink"
+    ]
+  },
+  "url": "https://www.retrowatch.co/",
+  "vendor": "Retro Watch"
+}
